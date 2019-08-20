@@ -3,6 +3,7 @@ import axios from 'axios'
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AppHeader from '../component/AppHeader/AppHeader'
@@ -31,7 +32,7 @@ class BeerList extends Component {
   render() {
     return(
       <MainTemplate>        
-        <AppHeader title="Página de listagem" />
+        <AppHeader title="Lista de Cervejas" />
               <ul>
                   {this.state.listBeerGrid.map((beer, index) =>
                     <li key={beer}>
@@ -44,11 +45,16 @@ class BeerList extends Component {
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                           <Typography>
-                            Tagline: {beer.tagline} - 
+                            Tagline: {beer.tagline} -                             
+                          </Typography>
+                          <Typography>
                             Descrição: {beer.description}
                           </Typography>
+                          <CardMedia> 
+                            <img className="media" src={beer.image_url} alt="cerveja"/>
+                          </CardMedia>
                       </ExpansionPanelDetails>
-                      </ExpansionPanel>                      
+                    </ExpansionPanel>                      
                     </li>                    
                   )}
               </ul>

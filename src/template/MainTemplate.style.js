@@ -13,5 +13,9 @@ export default () => ({
     },
     content: {
       margin: '10px'
+    },
+    media: {
+      height: 0,
+      paddingTop: '56.25%', // 16:9
     }
 })
